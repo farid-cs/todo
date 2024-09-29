@@ -29,6 +29,13 @@ Todo read_file(const char* file_name)
 	return todo;
 }
 
+void save_todo_to_file(const char* file_name, Todo todo)
+{
+	FILE* file = fopen(file_name, "wb");
+	fwrite(&todo, 1, sizeof(todo), file);
+	fclose(file);
+}
+
 void ls(void)
 {
 	Todo todo = read_file(FILE_NAME);
@@ -57,9 +64,7 @@ void add(const char* task)
 	todo.list[todo.len].done = 0;
 	todo.len++;
 
-	FILE* file = fopen(FILE_NAME, "wb");
-	fwrite(&todo, 1, sizeof(todo), file);
-	fclose(file);
+	save_todo_to_file(FILE_NAME, todo);
 }
 
 void rm(char* str_id)
@@ -78,9 +83,7 @@ void rm(char* str_id)
 
 	todo.len--;
 
-	FILE* file = fopen(FILE_NAME, "wb");
-	fwrite(&todo, 1, sizeof(todo), file);
-	fclose(file);
+	save_todo_to_file(FILE_NAME, todo);
 }
 
 void complete(char* str_id)
@@ -95,9 +98,7 @@ void complete(char* str_id)
 
 	todo.list[id].done = 1;
 
-	FILE* file = fopen(FILE_NAME, "wb");
-	fwrite(&todo, 1, sizeof(todo), file);
-	fclose(file);
+	save_todo_to_file(FILE_NAME, todo);
 }
 
 void usage()
