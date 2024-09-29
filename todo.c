@@ -34,10 +34,13 @@ void ls(void)
 	Todo todo = read_file(FILE_NAME);
 
 	for (size_t i = 0; i != todo.len; i++) {
+		const char* strike = "\x1B[9m";
+		const char* reset = "\x1B[0m";
+
 		if (todo.list[i].done) {
-			printf("%lu \x1B[9m%s\x1B[0m\n", i+1, todo.list[i].title);
+			printf("%lu %s%s%s\n", i+1, strike, todo.list[i].title, reset);
 		} else {
-			printf("%lu %s\n", i+1,  todo.list[i].title);
+			printf("%lu %s\n", i+1, todo.list[i].title);
 		}
 	}
 }
