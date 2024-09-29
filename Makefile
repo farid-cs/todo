@@ -3,7 +3,7 @@ LDFLAGS = -s
 PREFIX = ~/.local
 
 todo: todo.c
-install:
+install: todo
 	cp todo ${PREFIX}/bin
 
 clean:
