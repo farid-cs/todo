@@ -1,5 +1,5 @@
-CFLAGS = -Wall -Wextra -O2
-LDFLAGS = -s
+CC = cc
+CFLAGS = -Wall -Wextra -Wpedantic -std=c11 -g
 PREFIX = ~/.local
 
 todo: todo.c
