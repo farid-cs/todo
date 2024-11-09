@@ -47,7 +47,7 @@ ls(void)
 		const char *strike = todo.list[i].done ? "\x1B[9m" : "";
 		const char *reset = "\x1B[0m";
 
-		printf("%lu %s%s%s\n", i+1, strike, todo.list[i].title, reset);
+		printf("%lu: %s%s%s\n", i, strike, todo.list[i].title, reset);
 	}
 }
 
