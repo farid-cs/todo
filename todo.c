@@ -4,7 +4,7 @@
 
 #define TITLE_LENGTH 100
 #define LIST_LENGTH 100
-#define FILE_NAME "todo.bin"
+#define FILE_NAME "/home/farid/.local/share/todo.bin"
 
 typedef struct Task Task;
 struct Task {
@@ -69,7 +69,7 @@ add(const char *title)
 size_t
 arg_to_id(const char *arg)
 {
-	return strtoul(arg, NULL, 10) - 1;
+	return strtoul(arg, NULL, 10);
 }
 
 void
