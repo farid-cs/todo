@@ -103,7 +103,7 @@ complete(char *str_id)
 }
 
 void
-usage()
+usage(void)
 {
 	fputs("usage:\n"
 	"      todo [ls]\n"
